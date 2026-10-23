@@ -12,8 +12,11 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay, recall_score
 from sklearn.ensemble import RandomForestClassifier
 import xgboost as xgb
+from pathlib import Path
 def main():
-    data = pd.read_csv(r"C:\Projekte\herzkrankheit-vorhersage\heart_disease_uci.csv")
+
+    path = Path(__file__)
+    data = pd.read_csv(f"{path.parent}\heart_disease_uci.csv")
     X = data.drop(columns=["num", "thal", "ca", "id", "dataset"])
     Y = data["num"]
 
