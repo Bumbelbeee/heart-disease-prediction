@@ -16,7 +16,7 @@ from pathlib import Path
 def main():
 
     path = Path(__file__)
-    data = pd.read_csv(f"{path.parent}\heart_disease_uci.csv")
+    data = pd.read_csv(path.parent / "heart_disease_uci.csv")
     X = data.drop(columns=["num", "thal", "ca", "id", "dataset"])
     Y = data["num"]
 
